@@ -45,11 +45,6 @@ export const Navbar: React.FC = () => {
     {
       label: 'Home',
       view: 'home',
-      subItems: [
-        { title: 'Campus Hero & Overview', desc: 'Top slide carousel and collegiate highlights', view: 'home' },
-        { title: 'Principal Welcome Message', desc: 'Message from the leadership', view: 'home' },
-        { title: 'Latest Circulars & Notices', desc: 'Recent collegiate announcements', view: 'home' },
-      ],
     },
     {
       label: 'About Us',
@@ -105,12 +100,8 @@ export const Navbar: React.FC = () => {
     {
       label: 'Help Desk',
       view: 'helpdesk',
-      badge: 'Support',
       subItems: [
-        { title: 'Submit Online Query / Ticket', desc: 'Admissions, examinations, fee, and bus queries', view: 'helpdesk' },
-        { title: 'Track Ticket by Token', desc: 'Real-time status tracking for existing inquiries', view: 'helpdesk' },
-        { title: 'Admissions 2026-27 Desk', desc: 'Online application procedure and fee schedule', view: 'admissions' },
-        { title: 'Grievance Redressal Committee', desc: 'Confidential student and parent support cell', view: 'helpdesk' },
+        { title: 'Submit Online Query', desc: 'Direct online query for admissions, examinations, and college assistance', view: 'helpdesk' },
       ],
     },
   ];

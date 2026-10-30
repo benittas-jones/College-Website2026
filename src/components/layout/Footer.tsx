@@ -171,11 +171,11 @@ export const Footer: React.FC = () => {
               }}
               className="mt-2 inline-flex items-center gap-2 px-3.5 py-1.5 text-xs font-medium text-white bg-blue-900 hover:bg-blue-800 rounded transition-colors shadow-xs"
             >
-              <span>Submit Ticket / Query</span>
+              <span>Submit Online Query</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
             <div className="pt-2 text-[11px] text-slate-500">
-              Online grievance redressal & ticket tracking
+              Prompt administrative guidance and student support
             </div>
           </div>
         </div>
@@ -189,11 +189,13 @@ export const Footer: React.FC = () => {
             </div>
             <div className="flex items-center gap-1.5">
               <Phone className="w-3.5 h-3.5 text-blue-400 shrink-0" />
-              <span>+91 44 2746 4123 / 2746 4124</span>
+              <span>044 - 2999 4940 / 044 - 2999 4957</span>
             </div>
             <div className="flex items-center gap-1.5">
               <Mail className="w-3.5 h-3.5 text-blue-400 shrink-0" />
-              <span>principal@csiewartcollege.edu.in</span>
+              <a href="mailto:csiewcc@gmail.com" className="hover:text-blue-300 transition-colors">
+                csiewcc@gmail.com
+              </a>
             </div>
           </div>
           <div className="text-slate-500 text-xs w-full md:w-auto text-left md:text-right">
