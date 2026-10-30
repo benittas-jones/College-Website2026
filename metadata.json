@@ -1,0 +1,6 @@
+{
+  "name": "Apex Institute - College Portal & PHP Database Hub",
+  "description": "Complete collegiate web portal and academic management system featuring admissions, student-faculty dashboards, examination marksheets, and integrated PHP/MySQL backend suite.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
