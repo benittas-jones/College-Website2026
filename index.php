@@ -64,18 +64,18 @@ require_once __DIR__ . '/includes/header.php';
         <div>
           <div class="psu-gateway-icon">&#127891;</div>
           <h3 class="psu-gateway-title">Undergraduate Majors</h3>
-          <p class="psu-gateway-desc">Career-ready degrees in B.Sc Computer Science, BCA, B.Com General, Corporate Secretaryship, BBA, and B.A. English Literature.</p>
+          <p class="psu-gateway-desc">7 career-focused University of Madras degrees: B.Sc. Computer Science, B.Sc. Home Science (Clinical Nutrition &amp; Dietetics), B.Sc. Mathematics, B.Sc. Microbiology, B.A. English, B.Com, and B.Com. ISM.</p>
         </div>
-        <a href="academics.php" class="psu-gateway-link">Explore UG Programs &rarr;</a>
+        <a href="academics.php#ug-section" class="psu-gateway-link">Explore 7 UG Programmes &rarr;</a>
       </div>
 
       <div class="psu-gateway-card featured-gold">
         <div>
           <div class="psu-gateway-icon">&#128218;</div>
           <h3 class="psu-gateway-title">Postgraduate Studies</h3>
-          <p class="psu-gateway-desc">Advanced postgraduate programs in M.Com and M.A. English Literature fostering deep research capabilities and career leadership.</p>
+          <p class="psu-gateway-desc">3 advanced Master's programmes: M.A. English Literature, M.Com. (Master of Commerce), and M.S.W. (Master of Social Work) with deep research and community practicum.</p>
         </div>
-        <a href="academics.php" class="psu-gateway-link">Discover PG Programs &rarr;</a>
+        <a href="academics.php#pg-section" class="psu-gateway-link">Discover 3 PG Programmes &rarr;</a>
       </div>
 
       <div class="psu-gateway-card">
@@ -168,101 +168,123 @@ require_once __DIR__ . '/includes/header.php';
 
     <!-- Filter Tabs -->
     <div class="psu-filter-tabs">
-      <button class="psu-filter-tab active" onclick="filterPrograms('all', this)">All Degrees (8)</button>
-      <button class="psu-filter-tab" onclick="filterPrograms('stem', this)">Computer Science &amp; IT</button>
-      <button class="psu-filter-tab" onclick="filterPrograms('commerce', this)">Commerce &amp; Business</button>
-      <button class="psu-filter-tab" onclick="filterPrograms('humanities', this)">Humanities &amp; Languages</button>
-      <button class="psu-filter-tab" onclick="filterPrograms('pg', this)">Postgraduate Programs</button>
+      <button class="psu-filter-tab active" onclick="filterPrograms('all', this)">All Degrees (10)</button>
+      <button class="psu-filter-tab" onclick="filterPrograms('stem', this)">Sciences &amp; Tech (4)</button>
+      <button class="psu-filter-tab" onclick="filterPrograms('commerce', this)">Commerce &amp; ISM (2)</button>
+      <button class="psu-filter-tab" onclick="filterPrograms('humanities', this)">Humanities (1)</button>
+      <button class="psu-filter-tab" onclick="filterPrograms('pg', this)">Postgraduate &ndash; PG (3)</button>
     </div>
 
     <!-- Programs Grid -->
     <div class="psu-programs-grid">
-      <!-- B.Sc Computer Science -->
+      <!-- 1. B.Sc. Computer Science -->
       <div class="psu-prog-card" data-category="stem">
         <div>
           <span class="psu-prog-tag">UG &bull; 3 Years</span>
-          <h3 class="psu-prog-title">B.Sc Computer Science</h3>
+          <h3 class="psu-prog-title">B.Sc. Computer Science</h3>
           <p class="psu-prog-dept">Department of Computer Science</p>
           <p class="psu-prog-features">Software engineering, Python, Java, Data Structures, Web Development, and Cloud Computing in air-conditioned computer labs.</p>
         </div>
-        <a href="academics.php" class="psu-prog-cta">Curriculum &amp; Careers &rarr;</a>
+        <a href="course-bsc-cs.html" class="psu-prog-cta">Curriculum &amp; Details &rarr;</a>
       </div>
 
-      <!-- BCA -->
+      <!-- 2. B.Sc. Clinical Nutrition -->
       <div class="psu-prog-card" data-category="stem">
         <div>
           <span class="psu-prog-tag">UG &bull; 3 Years</span>
-          <h3 class="psu-prog-title">B.C.A. Computer Applications</h3>
-          <p class="psu-prog-dept">Department of Computer Applications</p>
-          <p class="psu-prog-features">Applied programming, mobile application development, database management (DBMS), and modern IT systems architecture.</p>
+          <h3 class="psu-prog-title">B.Sc. Home Science Clinical Nutrition</h3>
+          <p class="psu-prog-dept">Department of Home Science</p>
+          <p class="psu-prog-features">Therapeutic dietetics, clinical biochemistry, food science, community nutrition, and hospital clinical internships.</p>
         </div>
-        <a href="academics.php" class="psu-prog-cta">Curriculum &amp; Careers &rarr;</a>
+        <a href="course-bsc-nutrition.html" class="psu-prog-cta">Curriculum &amp; Details &rarr;</a>
       </div>
 
-      <!-- B.Com General -->
+      <!-- 3. B.Sc. Mathematics -->
+      <div class="psu-prog-card" data-category="stem">
+        <div>
+          <span class="psu-prog-tag">UG &bull; 3 Years</span>
+          <h3 class="psu-prog-title">B.Sc. Mathematics</h3>
+          <p class="psu-prog-dept">Department of Mathematics</p>
+          <p class="psu-prog-features">Classical algebra, real and complex analysis, differential equations, statistics, mechanics, and numerical methods.</p>
+        </div>
+        <a href="course-bsc-maths.html" class="psu-prog-cta">Curriculum &amp; Details &rarr;</a>
+      </div>
+
+      <!-- 4. B.Sc. Microbiology -->
+      <div class="psu-prog-card" data-category="stem">
+        <div>
+          <span class="psu-prog-tag">UG &bull; 3 Years</span>
+          <h3 class="psu-prog-title">B.Sc. Microbiology</h3>
+          <p class="psu-prog-dept">Department of Microbiology</p>
+          <p class="psu-prog-features">Immunology, medical bacteriology, virology, microbial genetics, recombinant DNA tech, and diagnostic wet labs.</p>
+        </div>
+        <a href="course-bsc-microbiology.html" class="psu-prog-cta">Curriculum &amp; Details &rarr;</a>
+      </div>
+
+      <!-- 5. B.A. English -->
+      <div class="psu-prog-card" data-category="humanities">
+        <div>
+          <span class="psu-prog-tag">UG &bull; 3 Years</span>
+          <h3 class="psu-prog-title">B.A. English</h3>
+          <p class="psu-prog-dept">Department of English</p>
+          <p class="psu-prog-features">World literature, British classics, Indian writing in English, literary criticism, phonetics, creative journalism, and media.</p>
+        </div>
+        <a href="course-ba-english.html" class="psu-prog-cta">Curriculum &amp; Details &rarr;</a>
+      </div>
+
+      <!-- 6. B.Com -->
       <div class="psu-prog-card" data-category="commerce">
         <div>
           <span class="psu-prog-tag">UG &bull; 3 Years</span>
           <h3 class="psu-prog-title">B.Com (General)</h3>
           <p class="psu-prog-dept">Department of Commerce</p>
-          <p class="psu-prog-features">Financial accounting, banking regulations, direct taxation, company law, and Tally Prime practical certification.</p>
+          <p class="psu-prog-features">Financial accounting, banking laws, direct &amp; indirect taxation (GST), auditing, and professional accountancy training.</p>
         </div>
-        <a href="academics.php" class="psu-prog-cta">Curriculum &amp; Careers &rarr;</a>
+        <a href="course-bcom.html" class="psu-prog-cta">Curriculum &amp; Details &rarr;</a>
       </div>
 
-      <!-- B.Com Corporate Secretaryship -->
+      <!-- 7. B.Com. ISM -->
       <div class="psu-prog-card" data-category="commerce">
         <div>
           <span class="psu-prog-tag">UG &bull; 3 Years</span>
-          <h3 class="psu-prog-title">B.Com (Corporate Secretaryship)</h3>
-          <p class="psu-prog-dept">Department of Corporate Secretaryship</p>
-          <p class="psu-prog-features">Corporate compliance, secretarial practice, securities law, institutional auditing, and managerial communication.</p>
+          <h3 class="psu-prog-title">B.Com. ISM (Information Systems)</h3>
+          <p class="psu-prog-dept">Department of Commerce &ndash; ISM</p>
+          <p class="psu-prog-features">Commerce integrated with IT: Database management, ERP systems, E-Commerce, web development, and business analytics.</p>
         </div>
-        <a href="academics.php" class="psu-prog-cta">Curriculum &amp; Careers &rarr;</a>
+        <a href="course-bcom-ism.html" class="psu-prog-cta">Curriculum &amp; Details &rarr;</a>
       </div>
 
-      <!-- BBA -->
-      <div class="psu-prog-card" data-category="commerce">
-        <div>
-          <span class="psu-prog-tag">UG &bull; 3 Years</span>
-          <h3 class="psu-prog-title">B.B.A. Business Administration</h3>
-          <p class="psu-prog-dept">Department of Business Administration</p>
-          <p class="psu-prog-features">Strategic management, marketing analytics, human resource management, and rural entrepreneurship incubation.</p>
-        </div>
-        <a href="academics.php" class="psu-prog-cta">Curriculum &amp; Careers &rarr;</a>
-      </div>
-
-      <!-- B.A. English -->
-      <div class="psu-prog-card" data-category="humanities">
-        <div>
-          <span class="psu-prog-tag">UG &bull; 3 Years</span>
-          <h3 class="psu-prog-title">B.A. English Literature</h3>
-          <p class="psu-prog-dept">Department of English</p>
-          <p class="psu-prog-features">World literature, British &amp; American classics, literary criticism, phonetics, creative writing, and mass media communication.</p>
-        </div>
-        <a href="academics.php" class="psu-prog-cta">Curriculum &amp; Careers &rarr;</a>
-      </div>
-
-      <!-- M.Com (Postgraduate) -->
+      <!-- 8. M.A. English -->
       <div class="psu-prog-card" data-category="pg">
         <div>
-          <span class="psu-prog-tag tag-pg">PG &bull; 2 Years &bull; Est. 2019</span>
-          <h3 class="psu-prog-title">M.Com (Master of Commerce)</h3>
-          <p class="psu-prog-dept">PG Department of Commerce</p>
-          <p class="psu-prog-features">Advanced financial management, corporate accounting research, quantitative finance, and UGC-NET preparation.</p>
-        </div>
-        <a href="academics.php" class="psu-prog-cta">Curriculum &amp; Careers &rarr;</a>
-      </div>
-
-      <!-- M.A. English Literature (Postgraduate) -->
-      <div class="psu-prog-card" data-category="pg">
-        <div>
-          <span class="psu-prog-tag tag-pg">PG &bull; 2 Years &bull; Est. 2019</span>
-          <h3 class="psu-prog-title">M.A. English Literature</h3>
+          <span class="psu-prog-tag tag-pg">PG &bull; 2 Years</span>
+          <h3 class="psu-prog-title">M.A. English</h3>
           <p class="psu-prog-dept">PG Department of English</p>
-          <p class="psu-prog-features">Postcolonial theory, gender studies, research methodology, advanced linguistics, and collegiate pedagogy training.</p>
+          <p class="psu-prog-features">Critical theory, post-colonial discourse, gender studies, translation methodology, dissertation, and NET/SET preparation.</p>
         </div>
-        <a href="academics.php" class="psu-prog-cta">Curriculum &amp; Careers &rarr;</a>
+        <a href="course-ma-english.html" class="psu-prog-cta">Curriculum &amp; Details &rarr;</a>
+      </div>
+
+      <!-- 9. M.Com. -->
+      <div class="psu-prog-card" data-category="pg">
+        <div>
+          <span class="psu-prog-tag tag-pg">PG &bull; 2 Years</span>
+          <h3 class="psu-prog-title">M.Com. (Master of Commerce)</h3>
+          <p class="psu-prog-dept">PG Department of Commerce</p>
+          <p class="psu-prog-features">Strategic financial management, investment &amp; security analysis, international business, quantitative modeling, and research.</p>
+        </div>
+        <a href="course-mcom.html" class="psu-prog-cta">Curriculum &amp; Details &rarr;</a>
+      </div>
+
+      <!-- 10. M.S.W. -->
+      <div class="psu-prog-card" data-category="pg">
+        <div>
+          <span class="psu-prog-tag tag-pg">PG &bull; 2 Years</span>
+          <h3 class="psu-prog-title">M.S.W. (Master of Social Work)</h3>
+          <p class="psu-prog-dept">Department of Social Work</p>
+          <p class="psu-prog-features">Community development, human resource management, medical &amp; psychiatric social work, and concurrent field practicum.</p>
+        </div>
+        <a href="course-msw.html" class="psu-prog-cta">Curriculum &amp; Details &rarr;</a>
       </div>
     </div>
   </div>
