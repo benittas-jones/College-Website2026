@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Examinations &amp; Marksheets | C.S.I. Ewart Women's Christian College</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-util-bar">
+    <div class="container top-flex">
+      <span>Diocese of Madras &bull; Church of South India</span>
+      <div class="top-links">
+        <a href="examinations.html">Examinations</a>
+        <span class="sep">|</span>
+        <a href="admissions.html">Admissions 2026</a>
+        <span class="sep">|</span>
+        <a href="contact.html">Help Desk</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-flex">
+      <a href="index.html" class="brand-lockup">
+        <img src="/assets/aistudio/College_LOGO_66bb4b67.jpg" alt="CSI Ewart Crest" class="brand-logo">
+        <div class="brand-text">
+          <span class="brand-title">C.S.I. Ewart Women's Christian College</span>
+          <span class="brand-affil">(Affiliated to the University of Madras)</span>
+          <span class="brand-loc">Melrosapuram, Via-Singaperumal Koil, Chengalpattu District &ndash; 603 204</span>
+        </div>
+      </a>
+      <div class="header-cta">
+        <a href="admissions.html" class="btn btn-apply">Apply Online 2026</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="main-nav" id="mainNav">
+    <div class="container">
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li class="has-dropdown">
+          <a href="about.html">About Us &dtrif;</a>
+          <ul class="dropdown-menu">
+            <li><a href="about.html#founder">Founder &amp; his Vision</a></li>
+            <li><a href="about.html#leadership">Our Leadership</a></li>
+            <li><a href="about.html#history">History of Ewart</a></li>
+            <li><a href="about.html#mission">Mission Statement</a></li>
+            <li><a href="about.html#quality">Quality Policy</a></li>
+            <li><a href="about.html#faith">Faith and Heritage</a></li>
+            <li><a href="about.html#governing">Governing Body</a></li>
+          </ul>
+        </li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="examinations.html">Examinations</a></li>
+        <li><a href="contact.html">Help Desk</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <h1>Examinations Portal &amp; Semester Marksheets</h1>
+      <p>Affiliated to the University of Madras &bull; Results Verification Desk</p>
+    </div>
+  </div>
+
+  <div class="container section">
+    <div class="p-4 bg-light rounded text-center mb-4 border">
+      <h3 class="serif-title text-navy">Search Student Marksheet</h3>
+      <p class="text-muted">Enter Register Number (e.g. <strong>EW2024CS01</strong> or <strong>EW2024COM05</strong>)</p>
+
+      <form action="examinations.php" method="GET" class="mt-3">
+        <input type="text" name="roll_number" required placeholder="e.g. EW2024CS01" class="form-control" style="max-width:300px; display:inline-block; text-align:center;">
+        <button type="submit" class="btn btn-primary">Search Marksheet &rarr;</button>
+      </form>
+    </div>
+
+    <!-- Sample Statement of Marks Preview -->
+    <div class="p-4 bg-white border rounded shadow-sm">
+      <div class="text-center pb-3 border-bottom mb-3">
+        <img src="/assets/aistudio/College_LOGO_66bb4b67.jpg" alt="Logo" style="width:50px; margin:0 auto 8px;">
+        <h3 class="serif-title text-navy">C.S.I. Ewart Women's Christian College</h3>
+        <p class="text-muted text-sm">Melrosapuram &bull; Affiliated to University of Madras</p>
+        <h4 class="mt-2 text-crimson">PROVISIONAL STATEMENT OF MARKS</h4>
+      </div>
+
+      <div class="grid-2 text-sm mb-3">
+        <div>
+          <p><strong>Student Name:</strong> Keerthana R.</p>
+          <p><strong>Register Number:</strong> EW2024CS01</p>
+          <p><strong>Degree / Branch:</strong> B.Sc Computer Science</p>
+        </div>
+        <div style="text-align:right;">
+          <p><strong>Batch:</strong> 2023 - 2026</p>
+          <p><strong>Cumulative CGPA:</strong> 8.92</p>
+          <p><strong>Attendance:</strong> 94.5%</p>
+        </div>
+      </div>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Course Code</th>
+            <th>Course Title</th>
+            <th>Credits</th>
+            <th>Internal (40)</th>
+            <th>External (60)</th>
+            <th>Total (100)</th>
+            <th>Grade</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>CS401</strong></td>
+            <td>Operating Systems &amp; Concurrency</td>
+            <td>4</td>
+            <td>38</td>
+            <td>54</td>
+            <td>92</td>
+            <td>O</td>
+            <td style="color:green; font-weight:bold;">Pass</td>
+          </tr>
+          <tr>
+            <td><strong>CS402</strong></td>
+            <td>Relational Database &amp; SQL</td>
+            <td>4</td>
+            <td>36</td>
+            <td>52</td>
+            <td>88</td>
+            <td>A+</td>
+            <td style="color:green; font-weight:bold;">Pass</td>
+          </tr>
+          <tr>
+            <td><strong>CS403</strong></td>
+            <td>Web Technologies &amp; PHP Architecture</td>
+            <td>3</td>
+            <td>39</td>
+            <td>55</td>
+            <td>94</td>
+            <td>O</td>
+            <td style="color:green; font-weight:bold;">Pass</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="text-center mt-3">
+        <button onclick="window.print()" class="btn btn-secondary">Print Statement</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand">
+          <img src="/assets/aistudio/College_LOGO_66bb4b67.jpg" alt="Logo" class="footer-logo">
+          <h3 class="footer-college-name">C.S.I. Ewart Women's Christian College</h3>
+        </div>
+        <p class="footer-tagline">Training young women to be serving, caring and sharing citizens.</p>
+        <p class="mt-2 text-sm text-gold"><strong>Motto:</strong> Love and Serve</p>
+      </div>
+      <div class="footer-col">
+        <h4>About Us</h4>
+        <ul class="footer-links">
+          <li><a href="about.html#founder">&bull; Founder &amp; His Vision</a></li>
+          <li><a href="about.html#leadership">&bull; Our Leadership</a></li>
+          <li><a href="about.html#history">&bull; History of Ewart</a></li>
+          <li><a href="about.html#mission">&bull; Mission Statement</a></li>
+          <li><a href="about.html#quality">&bull; Quality Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Academics</h4>
+        <ul class="footer-links">
+          <li><a href="academics.html">&bull; B.Sc Computer Science</a></li>
+          <li><a href="academics.html">&bull; BCA &amp; BBA</a></li>
+          <li><a href="academics.html">&bull; B.Com General &amp; Corp Sec</a></li>
+          <li><a href="academics.html">&bull; B.A. &amp; M.A. English</a></li>
+          <li><a href="academics.html">&bull; M.Com</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Campus Contact</h4>
+        <address class="footer-address">
+          Melrosapuram, Via-Singaperumal Koil,<br>
+          Chengalpattu District &ndash; 603 204.<br>
+          <strong>Tel:</strong> 044-2746 9288<br>
+          <strong>Email:</strong> info@csiewartcollege.edu.in
+        </address>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-flex">
+        <p>&copy; 2026 C.S.I. Ewart Women's Christian College &bull; All Rights Reserved</p>
+        <p>Pure Vanilla HTML5 &amp; CSS Edition</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

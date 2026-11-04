@@ -1,0 +1,2355 @@
+/* ==========================================================================
+   C.S.I. EWART WOMEN'S CHRISTIAN COLLEGE, MELROSAPURAM
+   Pure Vanilla CSS (Zero Frameworks, Pure Clean Web Standard)
+   ========================================================================== */
+
+:root {
+  --navy: #001E44;         /* Penn State Deep Navy */
+  --navy-dark: #041226;    /* Penn State Dark Navy */
+  --navy-mid: #002D62;     /* Penn State Royal Navy */
+  --psu-blue: #001E44;     /* Penn State Blue */
+  --psu-light-blue: #009CDE; /* Penn State Sky Blue */
+  --psu-gold: #C99700;     /* Penn State Lion Gold / Ochre */
+  --psu-gold-hover: #b38500;
+  --crimson: #990000;      /* CSI Ewart Crimson */
+  --crimson-hover: #b00000;
+  --gold: #C99700;
+  --gold-dark: #a87900;
+  --stone-50: #f8fafc;
+  --stone-100: #f1f5f9;
+  --stone-200: #e2e8f0;
+  --stone-300: #cbd5e1;
+  --stone-700: #334155;
+  --stone-800: #1e293b;
+  --stone-900: #0f172a;
+  --white: #ffffff;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-crest: 'Cinzel', serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--stone-800);
+  background-color: var(--stone-50);
+  line-height: 1.6;
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--navy);
+  text-decoration: none;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+a:hover {
+  color: var(--crimson);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Typography Helpers */
+.serif-title {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.sub-heading {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--crimson);
+  margin-bottom: 6px;
+}
+
+.text-navy { color: var(--navy); }
+.text-crimson { color: var(--crimson); }
+.text-gold { color: var(--gold); }
+.text-muted { color: #666; font-size: 0.9em; }
+.font-serif { font-family: var(--font-serif); }
+.font-bold { font-weight: 700; }
+.italic { font-style: italic; }
+.text-center { text-align: center; }
+
+/* Top Notification / Utility Bar */
+.top-util-bar {
+  background: var(--navy-dark);
+  color: #e2e8f0;
+  font-size: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.top-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.top-links a {
+  color: #cbd5e1;
+  font-weight: 500;
+}
+
+.top-links a:hover {
+  color: var(--gold);
+}
+
+.top-links .sep {
+  margin: 0 8px;
+  color: rgba(255,255,255,0.25);
+}
+
+/* Main Site Header */
+.site-header {
+  background: var(--white);
+  border-bottom: 2px solid var(--navy);
+  padding: 16px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+}
+
+.brand-logo {
+  width: 68px;
+  height: 68px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-family: var(--font-crest);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.brand-affil {
+  font-size: 12px;
+  color: var(--crimson);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.brand-loc {
+  font-size: 11px;
+  color: var(--stone-700);
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.btn-apply, .btn-primary {
+  background: var(--crimson);
+  color: var(--white);
+}
+
+.btn-apply:hover, .btn-primary:hover {
+  background: var(--crimson-hover);
+  color: var(--white);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.4);
+}
+
+.btn-outline:hover {
+  background: rgba(255,255,255,0.15);
+  color: var(--white);
+}
+
+.btn-secondary {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.btn-secondary:hover {
+  background: var(--navy-dark);
+  color: var(--white);
+}
+
+/* Navigation */
+.main-nav {
+  background: var(--navy);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu > li {
+  position: relative;
+}
+
+.nav-menu > li > a {
+  display: block;
+  padding: 14px 18px;
+  color: #f1f5f9;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  border-bottom: 3px solid transparent;
+  transition: all 0.15s ease;
+}
+
+.nav-menu > li > a:hover,
+.nav-menu > li.active > a {
+  background: rgba(255,255,255,0.08);
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+
+/* Dropdown */
+.has-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 240px;
+  background: var(--white);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  list-style: none;
+  border-radius: 0 0 6px 6px;
+  border-top: 3px solid var(--crimson);
+  z-index: 200;
+  padding: 6px 0;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 18px;
+  font-size: 13px;
+  color: var(--stone-800);
+  font-weight: 500;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.dropdown-menu li:last-child a {
+  border-bottom: none;
+}
+
+.dropdown-menu li a:hover {
+  background: #f8fafc;
+  color: var(--crimson);
+  padding-left: 22px;
+}
+
+/* Mobile Toggle */
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.mobile-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--navy);
+  margin: 5px 0;
+}
+
+/* Page Header Banner */
+.page-header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+  color: var(--white);
+  padding: 40px 0 30px;
+  border-bottom: 4px solid var(--gold);
+}
+
+.page-header h1 {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.page-header p {
+  color: #cbd5e1;
+  font-size: 14px;
+}
+
+.sub-nav-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.sub-nav-tabs a {
+  padding: 6px 14px;
+  background: rgba(255,255,255,0.12);
+  color: var(--white);
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+
+.sub-nav-tabs a:hover,
+.sub-nav-tabs a.active {
+  background: var(--gold);
+  color: var(--navy-dark);
+}
+
+/* Sections & Grids */
+.section {
+  padding: 40px 0;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.align-center {
+  align-items: center;
+}
+
+/* Cards & Containers */
+.bg-white { background: var(--white); }
+.bg-light { background: #f8fafc; }
+.bg-navy { background: var(--navy); color: var(--white); }
+.rounded { border-radius: 8px; }
+.shadow-sm { box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+.shadow-md { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+.shadow-lg { box-shadow: 0 10px 25px rgba(0,0,0,0.12); }
+.border { border: 1px solid var(--stone-200); }
+.border-left-navy { border-left: 4px solid var(--navy); }
+.p-3 { padding: 20px; }
+.p-4 { padding: 28px; }
+.mb-2 { margin-bottom: 12px; }
+.mb-3 { margin-bottom: 20px; }
+.mb-4 { margin-bottom: 32px; }
+.mt-2 { margin-top: 12px; }
+.mt-3 { margin-top: 20px; }
+
+/* Founder Section Styling */
+.portrait-large {
+  width: 240px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 0 auto 12px;
+  border: 4px solid var(--white);
+}
+
+.founder-quote {
+  font-family: var(--font-serif);
+  font-size: 19px;
+  font-style: italic;
+  color: var(--navy);
+  margin: 16px 0;
+  padding-left: 16px;
+  border-left: 3px solid var(--gold);
+}
+
+.poem-banner {
+  background: #fefce8;
+  border: 1px solid #fef08a;
+  border-radius: 8px;
+  padding: 18px;
+  margin-top: 16px;
+}
+
+.poem-lines {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-style: italic;
+  color: var(--stone-900);
+  line-height: 1.8;
+}
+
+/* Leadership Portrait Cards & Enlargement Badge */
+.leader-card {
+  background: var(--white);
+  border: 1px solid var(--stone-200);
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.leader-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.leader-img-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 6px;
+  margin-bottom: 14px;
+  background-color: #f1f5f9;
+  cursor: pointer;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+.leader-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  transition: transform 0.3s ease;
+}
+
+.leader-img-container:hover .leader-img {
+  transform: scale(1.04);
+}
+
+.click-enlarge-badge {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(1, 31, 91, 0.88);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  transition: opacity 0.2s ease;
+}
+
+.leader-name {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.leader-designation {
+  font-size: 12px;
+  color: var(--crimson);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* Lightbox Modal in Portrait Format (No Cropping) */
+.portrait-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(6px);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.portrait-modal.active {
+  display: flex;
+}
+
+.portrait-modal-card {
+  position: relative;
+  background: var(--white);
+  border-radius: 12px;
+  max-width: 440px;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  animation: modalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalPop {
+  from { transform: scale(0.92); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.portrait-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background 0.15s ease;
+}
+
+.portrait-modal-close:hover {
+  background: var(--crimson);
+}
+
+.portrait-frame {
+  width: 100%;
+  max-height: 540px;
+  background: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.portrait-frame img {
+  width: 100%;
+  max-height: 540px;
+  object-fit: contain;
+}
+
+.portrait-modal-info {
+  padding: 16px 20px;
+  text-align: center;
+  background: var(--white);
+  border-top: 1px solid var(--stone-200);
+}
+
+.portrait-modal-info h3 {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+/* Hero Banner on Homepage */
+.hero-banner {
+  background: linear-gradient(rgba(1, 31, 91, 0.88), rgba(0, 23, 68, 0.92)), url('/assets/aistudio/College_LOGO_66bb4b67.jpg');
+  background-size: cover;
+  background-position: center;
+  color: var(--white);
+  padding: 70px 0;
+  text-align: center;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(242, 169, 0, 0.2);
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+.hero-banner h1 {
+  font-family: var(--font-serif);
+  font-size: 38px;
+  font-weight: 800;
+  max-width: 860px;
+  margin: 0 auto 16px;
+  line-height: 1.25;
+}
+
+.hero-lead {
+  font-size: 16px;
+  max-width: 680px;
+  margin: 0 auto 28px;
+  color: #e2e8f0;
+  font-style: italic;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* News Ticker Bar */
+.news-ticker-bar {
+  background: #fef3c7;
+  border-bottom: 1px solid #fde68a;
+  padding: 10px 0;
+  font-size: 13px;
+}
+
+.ticker-flex {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ticker-label {
+  background: var(--crimson);
+  color: var(--white);
+  padding: 3px 10px;
+  border-radius: 3px;
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.ticker-text {
+  color: #92400e;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  gap: 20px;
+}
+
+/* Metric Cards */
+.metric-card {
+  background: var(--white);
+  padding: 24px 20px;
+  border-radius: 8px;
+  border: 1px solid var(--stone-200);
+  border-top: 4px solid var(--crimson);
+  text-align: center;
+}
+
+.metric-number {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.metric-title {
+  display: block;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--crimson);
+  margin-bottom: 8px;
+}
+
+.metric-card p {
+  font-size: 12px;
+  color: var(--stone-700);
+  line-height: 1.4;
+}
+
+/* Tables */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-top: 16px;
+}
+
+.table th, .table td {
+  padding: 12px 14px;
+  border: 1px solid var(--stone-200);
+  text-align: left;
+}
+
+.table th {
+  background: var(--navy);
+  color: var(--white);
+  font-weight: 600;
+}
+
+.table tr:nth-child(even) td {
+  background: #f8fafc;
+}
+
+/* Forms */
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--navy);
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--stone-300);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.form-control:focus {
+  border-color: var(--navy);
+  box-shadow: 0 0 0 2px rgba(1, 31, 91, 0.1);
+}
+
+/* Footer */
+.site-footer {
+  background: var(--stone-900);
+  color: #cbd5e1;
+  padding: 50px 0 0;
+  margin-top: 60px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 36px;
+  padding-bottom: 40px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.footer-logo {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.footer-college-name {
+  font-family: var(--font-crest);
+  color: var(--white);
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.footer-col h4 {
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+  border-bottom: 2px solid var(--crimson);
+  padding-bottom: 6px;
+  display: inline-block;
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.footer-links a:hover {
+  color: var(--gold);
+}
+
+.footer-address {
+  font-style: normal;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #94a3b8;
+}
+
+.footer-bottom {
+  background: #111;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 16px 0;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.footer-bottom-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ==========================================================================
+   PENN STATE (PSU.EDU) INSPIRED COLLEGIATE HOMEPAGE ARCHITECTURE
+   ========================================================================== */
+
+/* Penn State Utility Ribbon */
+.psu-top-bar {
+  background-color: var(--navy-dark);
+  color: #cbd5e1;
+  font-size: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 120;
+}
+
+.psu-top-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.psu-top-brand-crumb {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.psu-top-brand-crumb .dot {
+  color: var(--psu-light-blue);
+}
+
+.psu-top-links-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.psu-audience-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.psu-audience-links a {
+  color: #cbd5e1;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.psu-audience-links a:hover {
+  color: var(--white);
+  text-decoration: underline;
+}
+
+.psu-util-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--white);
+  padding: 4px 10px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.psu-util-action-btn:hover {
+  background: var(--psu-light-blue);
+  color: var(--white);
+  border-color: var(--psu-light-blue);
+}
+
+.psu-search-btn {
+  background: transparent;
+  color: #e2e8f0;
+  border: none;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 3px;
+  transition: background 0.15s ease;
+}
+
+.psu-search-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--white);
+}
+
+/* Penn State Slide-Down Search Drawer */
+.psu-search-drawer {
+  display: none;
+  background: var(--navy);
+  padding: 24px 0;
+  border-bottom: 3px solid var(--psu-light-blue);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  animation: slideDownSearch 0.25s ease-out;
+}
+
+.psu-search-drawer.active {
+  display: block;
+}
+
+@keyframes slideDownSearch {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.psu-search-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.psu-search-input {
+  flex: 1;
+  padding: 12px 18px;
+  font-size: 16px;
+  border: 2px solid var(--psu-light-blue);
+  border-radius: 4px;
+  outline: none;
+  background: var(--white);
+  color: var(--stone-900);
+}
+
+.psu-search-submit {
+  padding: 12px 24px;
+  background: var(--psu-gold);
+  color: var(--navy-dark);
+  font-weight: 700;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: background 0.15s ease;
+}
+
+.psu-search-submit:hover {
+  background: #e0aa00;
+}
+
+.psu-search-close {
+  background: transparent;
+  color: #cbd5e1;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0 8px;
+  line-height: 1;
+}
+
+.psu-search-close:hover {
+  color: var(--white);
+}
+
+.psu-search-quicklinks {
+  max-width: 800px;
+  margin: 12px auto 0;
+  font-size: 12px;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.psu-search-quicklinks a {
+  color: #cbd5e1;
+  text-decoration: underline;
+  margin-right: 6px;
+}
+
+.psu-search-quicklinks a:hover {
+  color: var(--psu-light-blue);
+}
+
+/* ==========================================================================
+   Hero Picture Slider (3 Real Campus Photos, Pure Unmasked & Vibrantly Rendered)
+   ========================================================================== */
+.psu-hero-slider {
+  position: relative;
+  width: 100%;
+  height: 580px;
+  background-color: #041226;
+  overflow: hidden;
+  border-bottom: 4px solid var(--psu-gold);
+}
+
+.psu-slider-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.psu-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.85s cubic-bezier(0.4, 0, 0.2, 1), transform 0.85s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(1.02);
+  z-index: 1;
+}
+
+.psu-slide.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  z-index: 2;
+}
+
+/* Clear, natural, unmasked image presentation - NO dark overlay or mask */
+.psu-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  filter: none !important;
+  mask-image: none !important;
+  -webkit-mask-image: none !important;
+}
+
+/* Floating clean caption card (non-masking, sits in bottom-left corner) */
+.psu-slide-caption {
+  position: absolute;
+  bottom: 32px;
+  left: 5%;
+  z-index: 5;
+  background: rgba(4, 18, 38, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 18px 26px;
+  border-radius: 6px;
+  border-left: 5px solid var(--psu-gold);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  max-width: 680px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  animation: captionFadeUp 0.6s ease-out;
+}
+
+@keyframes captionFadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.psu-slide-kicker {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--psu-gold);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.psu-slide-kicker::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--psu-light-blue);
+  border-radius: 50%;
+}
+
+.psu-slide-title {
+  font-family: var(--font-crest);
+  font-size: clamp(20px, 2.8vw, 32px);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+.psu-slide-sub {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-style: italic;
+  color: #e2e8f0;
+  line-height: 1.4;
+}
+
+/* Slider Nav Arrows */
+.psu-slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(4, 18, 38, 0.75);
+  color: var(--white);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+}
+
+.psu-slider-btn:hover {
+  background: var(--psu-gold);
+  color: var(--navy-dark);
+  border-color: var(--white);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.psu-slider-btn.prev {
+  left: 20px;
+}
+
+.psu-slider-btn.next {
+  right: 20px;
+}
+
+/* Slider Indicator Dots */
+.psu-slider-dots {
+  position: absolute;
+  bottom: 20px;
+  right: 5%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(4, 18, 38, 0.65);
+  padding: 8px 16px;
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.psu-slider-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.psu-slider-dot:hover {
+  background: var(--white);
+  transform: scale(1.15);
+}
+
+.psu-slider-dot.active {
+  background: var(--psu-gold);
+  border-color: var(--white);
+  transform: scale(1.3);
+  box-shadow: 0 0 8px rgba(201, 151, 0, 0.8);
+}
+
+@media (max-width: 900px) {
+  .psu-hero-slider { height: 420px; }
+  .psu-slide-caption { bottom: 20px; left: 16px; right: 16px; max-width: none; padding: 14px 18px; }
+  .psu-slider-dots { display: none; }
+}
+
+@media (max-width: 600px) {
+  .psu-hero-slider { height: 300px; }
+  .psu-slide-caption { padding: 10px 14px; bottom: 12px; }
+  .psu-slide-title { font-size: 16px; }
+  .psu-slide-sub { font-size: 11px; display: none; }
+  .psu-slider-btn { width: 36px; height: 36px; font-size: 14px; }
+  .psu-slider-btn.prev { left: 8px; }
+  .psu-slider-btn.next { right: 8px; }
+}
+
+/* Legacy PSU hero fallback */
+.psu-hero {
+  position: relative;
+  background-color: var(--navy-dark);
+  color: var(--white);
+  padding: 80px 0 110px;
+  border-bottom: 4px solid var(--psu-gold);
+}
+
+.psu-hero-layout {
+  display: flex;
+  flex-direction: column;
+  max-width: 900px;
+}
+
+.psu-hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--psu-light-blue);
+  margin-bottom: 14px;
+}
+
+.psu-hero-kicker .kicker-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--psu-gold);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.psu-hero-title {
+  font-family: var(--font-crest);
+  font-size: clamp(38px, 5.5vw, 68px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.psu-hero-title .psu-accent-text {
+  color: var(--psu-gold);
+  display: inline-block;
+}
+
+.psu-hero-subtitle {
+  font-family: var(--font-serif);
+  font-size: clamp(18px, 2.2vw, 24px);
+  font-weight: 400;
+  font-style: italic;
+  color: #e2e8f0;
+  line-height: 1.35;
+  margin-bottom: 18px;
+}
+
+.psu-hero-desc {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #cbd5e1;
+  max-width: 780px;
+  margin-bottom: 30px;
+}
+
+.psu-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.psu-btn-primary {
+  background: var(--psu-gold);
+  color: var(--navy-dark);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 13px 26px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  box-shadow: 0 4px 14px rgba(201, 151, 0, 0.4);
+  transition: all 0.2s ease;
+  border: 1px solid var(--psu-gold);
+}
+
+.psu-btn-primary:hover {
+  background: #e0aa00;
+  color: var(--navy-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(201, 151, 0, 0.5);
+}
+
+.psu-btn-secondary {
+  background: var(--psu-light-blue);
+  color: var(--white);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 13px 26px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: all 0.2s ease;
+  border: 1px solid var(--psu-light-blue);
+}
+
+.psu-btn-secondary:hover {
+  background: #0088c4;
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+.psu-btn-outline {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 13px 24px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(4px);
+  transition: all 0.2s ease;
+}
+
+.psu-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: var(--white);
+  border-color: var(--white);
+}
+
+/* Penn State 4-Tile Gateway Bar (Overlapping Hero) */
+.psu-gateway-bar {
+  margin-top: -46px;
+  position: relative;
+  z-index: 10;
+  margin-bottom: 50px;
+}
+
+.psu-gateway-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.psu-gateway-card {
+  background: var(--white);
+  border-radius: 6px;
+  padding: 22px 20px;
+  box-shadow: 0 10px 25px rgba(0, 30, 68, 0.1);
+  border-top: 4px solid var(--psu-light-blue);
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.psu-gateway-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0, 30, 68, 0.16);
+  border-top-color: var(--psu-gold);
+}
+
+.psu-gateway-card.featured-gold {
+  border-top-color: var(--psu-gold);
+}
+
+.psu-gateway-icon {
+  font-size: 24px;
+  color: var(--psu-blue);
+  margin-bottom: 12px;
+}
+
+.psu-gateway-title {
+  font-family: var(--font-crest);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+
+.psu-gateway-desc {
+  font-size: 13px;
+  color: var(--stone-700);
+  line-height: 1.45;
+  margin-bottom: 14px;
+  flex: 1;
+}
+
+.psu-gateway-link {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--psu-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.psu-gateway-card:hover .psu-gateway-link {
+  color: var(--crimson);
+  gap: 8px;
+}
+
+/* Penn State Section Headers */
+.psu-section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 32px;
+  border-bottom: 2px solid var(--stone-200);
+  padding-bottom: 14px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.psu-section-title-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.psu-kicker {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--crimson);
+  margin-bottom: 4px;
+}
+
+.psu-section-heading {
+  font-family: var(--font-crest);
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+}
+
+.psu-section-link {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--psu-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.psu-section-link:hover {
+  color: var(--crimson);
+}
+
+/* Penn State Stories of Impact (Asymmetric Editorial Grid) */
+.psu-impact-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 28px;
+}
+
+.psu-story-featured {
+  background: var(--white);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--stone-200);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.psu-story-featured:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+}
+
+.psu-story-featured-img {
+  width: 100%;
+  height: 290px;
+  object-fit: cover;
+}
+
+.psu-story-featured-body {
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.psu-story-meta {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--crimson);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.psu-story-meta .read-time {
+  color: #64748b;
+  font-weight: 500;
+}
+
+.psu-story-title {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+
+.psu-story-desc {
+  font-size: 14px;
+  color: var(--stone-700);
+  line-height: 1.55;
+  margin-bottom: 18px;
+  flex: 1;
+}
+
+/* Side Stacked Stories */
+.psu-stories-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.psu-story-item {
+  background: var(--white);
+  border-radius: 6px;
+  padding: 16px;
+  border: 1px solid var(--stone-200);
+  display: flex;
+  gap: 16px;
+  transition: all 0.2s ease;
+  align-items: center;
+}
+
+.psu-story-item:hover {
+  border-color: var(--psu-light-blue);
+  transform: translateX(4px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+}
+
+.psu-story-item-thumb {
+  width: 110px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.psu-story-item-content {
+  flex: 1;
+}
+
+.psu-story-item-title {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+
+.psu-story-item:hover .psu-story-item-title {
+  color: var(--crimson);
+}
+
+.psu-story-item-date {
+  font-size: 11px;
+  color: #64748b;
+}
+
+/* Penn State Blue Ribbon: By The Numbers */
+.psu-by-the-numbers {
+  background: var(--navy);
+  color: var(--white);
+  padding: 60px 0;
+  margin: 60px 0;
+  border-top: 4px solid var(--psu-gold);
+  border-bottom: 4px solid var(--psu-gold);
+  position: relative;
+}
+
+.psu-numbers-intro {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+
+.psu-numbers-intro h2 {
+  font-family: var(--font-crest);
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.psu-numbers-intro p {
+  color: #cbd5e1;
+  font-size: 15px;
+}
+
+.psu-numbers-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+
+.psu-num-item {
+  padding: 10px;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.psu-num-item:last-child {
+  border-right: none;
+}
+
+.psu-num-stat {
+  font-family: var(--font-crest);
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--psu-gold);
+  line-height: 1.1;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.psu-num-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.psu-num-sub {
+  font-size: 11px;
+  color: #94a3b8;
+  line-height: 1.35;
+}
+
+/* Penn State Academic Degree & Majors Finder */
+.psu-degree-explorer {
+  background: #f8fafc;
+  padding: 60px 0;
+}
+
+.psu-filter-tabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.psu-filter-tab {
+  padding: 8px 18px;
+  background: var(--white);
+  border: 1px solid var(--stone-300);
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--stone-700);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.psu-filter-tab:hover {
+  border-color: var(--psu-blue);
+  color: var(--psu-blue);
+}
+
+.psu-filter-tab.active {
+  background: var(--navy);
+  color: var(--white);
+  border-color: var(--navy);
+}
+
+.psu-programs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.psu-prog-card {
+  background: var(--white);
+  border-radius: 6px;
+  border: 1px solid var(--stone-200);
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.psu-prog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 30, 68, 0.1);
+  border-color: var(--psu-light-blue);
+}
+
+.psu-prog-tag {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--psu-blue);
+  background: #e6f0fa;
+  padding: 3px 8px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-bottom: 10px;
+  align-self: flex-start;
+}
+
+.psu-prog-tag.tag-pg {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.psu-prog-title {
+  font-family: var(--font-crest);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.psu-prog-dept {
+  font-size: 12px;
+  color: #64748b;
+  margin-bottom: 10px;
+}
+
+.psu-prog-features {
+  font-size: 12px;
+  color: var(--stone-700);
+  line-height: 1.5;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.psu-prog-cta {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--psu-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.psu-prog-card:hover .psu-prog-cta {
+  color: var(--crimson);
+  gap: 6px;
+}
+
+/* Penn State Community Purpose & 6 Centres */
+.psu-purpose-section {
+  padding: 60px 0;
+  background: var(--white);
+}
+
+.psu-purpose-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+.psu-purpose-img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.psu-centres-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.psu-centre-item {
+  background: #f8fafc;
+  border-left: 3px solid var(--psu-light-blue);
+  padding: 10px 14px;
+  border-radius: 0 4px 4px 0;
+}
+
+.psu-centre-item h4 {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 2px;
+}
+
+.psu-centre-item p {
+  font-size: 11px;
+  color: #64748b;
+  line-height: 1.35;
+}
+
+/* Penn State Events & Calendar Section */
+.psu-events-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.psu-event-card {
+  background: var(--white);
+  border-radius: 6px;
+  border: 1px solid var(--stone-200);
+  padding: 18px;
+  display: flex;
+  gap: 14px;
+  transition: all 0.2s ease;
+}
+
+.psu-event-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  border-color: var(--psu-blue);
+}
+
+.psu-date-badge {
+  background: var(--navy);
+  color: var(--white);
+  width: 54px;
+  height: 58px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.psu-date-month {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--psu-gold);
+  line-height: 1;
+}
+
+.psu-date-day {
+  font-family: var(--font-crest);
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--white);
+}
+
+.psu-event-body {
+  flex: 1;
+}
+
+.psu-event-cat {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--crimson);
+  margin-bottom: 4px;
+}
+
+.psu-event-title {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+
+.psu-event-loc {
+  font-size: 11px;
+  color: #64748b;
+}
+
+/* Penn State Mega Footer Refinements */
+.psu-mega-footer {
+  background: var(--navy-dark);
+  color: #cbd5e1;
+  padding: 60px 0 0;
+  border-top: 4px solid var(--psu-gold);
+  margin-top: 60px;
+}
+
+.psu-footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 1.2fr 1.5fr;
+  gap: 40px;
+  padding-bottom: 50px;
+}
+
+.psu-footer-brand-title {
+  font-family: var(--font-crest);
+  color: var(--white);
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.psu-footer-crest {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  margin-bottom: 14px;
+}
+
+.psu-accred-notice {
+  font-size: 11px;
+  color: #94a3b8;
+  line-height: 1.5;
+  margin-top: 12px;
+  border-left: 2px solid var(--psu-gold);
+  padding-left: 10px;
+}
+
+.psu-footer-col h4 {
+  font-family: var(--font-crest);
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 18px;
+  border-bottom: 2px solid var(--psu-light-blue);
+  padding-bottom: 6px;
+  display: inline-block;
+}
+
+.psu-footer-links {
+  list-style: none;
+}
+
+.psu-footer-links li {
+  margin-bottom: 10px;
+}
+
+.psu-footer-links a {
+  color: #cbd5e1;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.psu-footer-links a:hover {
+  color: var(--psu-gold);
+  transform: translateX(3px);
+}
+
+.psu-footer-bottom {
+  background: #020b18;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 20px 0;
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* Responsive adjustments for Penn State layout */
+@media (max-width: 1100px) {
+  .psu-numbers-grid { grid-template-columns: repeat(3, 1fr); }
+  .psu-num-item:nth-child(3) { border-right: none; }
+  .psu-programs-grid { grid-template-columns: repeat(2, 1fr); }
+  .psu-events-grid { grid-template-columns: repeat(2, 1fr); }
+  .psu-gateway-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .psu-impact-grid { grid-template-columns: 1fr; }
+  .psu-purpose-grid { grid-template-columns: 1fr; }
+  .psu-footer-grid { grid-template-columns: 1fr 1fr; }
+  .psu-hero { padding: 60px 0 90px; }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  .psu-top-bar {
+    padding: 6px 0;
+  }
+  .psu-top-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 6px;
+  }
+  .psu-top-brand-crumb {
+    font-size: 11px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .psu-top-links-group {
+    width: 100%;
+    justify-content: center;
+    gap: 8px;
+  }
+  .psu-audience-links { display: none; }
+  
+  /* Header & Branding */
+  .site-header {
+    padding: 10px 0;
+  }
+  .brand-lockup {
+    gap: 12px;
+  }
+  .brand-logo {
+    width: 48px;
+    height: 48px;
+  }
+  .brand-title {
+    font-size: 15px;
+    line-height: 1.2;
+  }
+  .brand-affil {
+    font-size: 10.5px;
+  }
+  .brand-loc {
+    font-size: 10px;
+    line-height: 1.25;
+  }
+  .header-cta { display: none; }
+  
+  /* Mobile Hamburger Toggle */
+  .mobile-toggle {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 8px;
+    border-radius: 4px;
+    background: transparent;
+    border: 1px solid rgba(0, 30, 68, 0.2);
+    cursor: pointer;
+  }
+  .mobile-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--navy);
+    margin: 2.5px 0;
+    transition: all 0.25s ease;
+  }
+  .mobile-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(4px, 4px);
+  }
+  .mobile-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .mobile-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(4px, -4px);
+  }
+  
+  /* Mobile Navigation Menu */
+  .main-nav {
+    display: none;
+    width: 100%;
+    position: static;
+    background: var(--navy-dark);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+  .main-nav.mobile-active {
+    display: block !important;
+  }
+  .nav-menu {
+    flex-direction: column;
+    width: 100%;
+    padding: 6px 0;
+  }
+  .nav-menu > li {
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .nav-menu > li > a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 20px;
+    font-size: 14px;
+    min-height: 44px;
+    width: 100%;
+    border-bottom: none;
+  }
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    display: none;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 0;
+    border-top: 2px solid var(--psu-gold);
+    padding: 4px 0;
+    min-width: 100%;
+  }
+  .has-dropdown.mobile-open .dropdown-menu {
+    display: block;
+  }
+  .dropdown-menu li a {
+    color: #cbd5e1;
+    padding: 12px 20px 12px 30px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  }
+  
+  /* Hero Slider on Mobile */
+  .psu-hero-slider {
+    height: 380px;
+  }
+  .psu-slide-caption {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    padding: 12px 14px;
+    max-width: calc(100% - 24px);
+    border-left-width: 4px;
+  }
+  .psu-slide-title {
+    font-size: clamp(17px, 4.8vw, 22px);
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+  .psu-slide-kicker {
+    font-size: 10px;
+    margin-bottom: 4px;
+  }
+  .psu-slide-sub {
+    font-size: 12px;
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .psu-slider-btn {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 16px;
+  }
+  .psu-slider-btn.prev { left: 8px; }
+  .psu-slider-btn.next { right: 8px; }
+  .psu-slider-dots {
+    bottom: 10px;
+    right: 10px;
+    padding: 6px 10px;
+  }
+
+  /* Gateway Bar & Layout Grids */
+  .psu-gateway-bar {
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+  .psu-gateway-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .psu-numbers-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .psu-num-item {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 6px;
+  }
+  .psu-num-stat {
+    font-size: 34px;
+  }
+  .psu-programs-grid { grid-template-columns: 1fr; }
+  .psu-events-grid { grid-template-columns: 1fr; }
+  .psu-footer-grid { grid-template-columns: 1fr; }
+  .psu-centres-list { grid-template-columns: 1fr; }
+  .grid-2, .grid-3, .grid-4, .footer-grid { grid-template-columns: 1fr; }
+
+  /* Touch Ergonomics & Form Controls */
+  .form-control, input[type="text"], input[type="email"], input[type="tel"], input[type="number"], select, textarea {
+    font-size: 16px !important;
+    min-height: 44px;
+    padding: 10px 14px;
+    width: 100%;
+  }
+  .btn, .psu-btn-primary, .psu-btn-secondary, .psu-btn-outline, .psu-filter-tab {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .psu-filter-tabs {
+    gap: 6px;
+  }
+  .psu-filter-tab {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+  .psu-search-box {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .psu-search-input {
+    width: 100%;
+  }
+  .psu-search-submit {
+    width: 100%;
+    min-height: 44px;
+  }
+  .portrait-modal-card {
+    width: 92%;
+    max-width: 380px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 20px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-lockup {
+    gap: 10px;
+  }
+  .brand-logo {
+    width: 42px;
+    height: 42px;
+  }
+  .brand-title {
+    font-size: 13.5px;
+  }
+  .brand-affil {
+    font-size: 9.5px;
+  }
+  .brand-loc {
+    display: none;
+  }
+  .psu-hero-slider {
+    height: 320px;
+  }
+  .psu-slide-caption {
+    padding: 10px 12px;
+  }
+  .psu-slide-title {
+    font-size: 15.5px;
+  }
+  .psu-numbers-grid {
+    grid-template-columns: 1fr;
+  }
+  .psu-num-stat {
+    font-size: 30px;
+  }
+  .page-header {
+    padding: 28px 0 20px;
+  }
+  .page-header h1 {
+    font-size: 22px;
+  }
+  .footer-bottom-flex {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+}
+

@@ -1,0 +1,24 @@
+# C.S.I. Ewart Women's Christian College Robots.txt
+# Melrosapuram, Chengalpattu District, Tamil Nadu - 603 204
+# Affiliated to the University of Madras
+
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /about.html
+Allow: /academics.html
+Allow: /admissions.html
+Allow: /examinations.html
+Allow: /student_life.html
+Allow: /facilities.html
+Allow: /faculty.html
+Allow: /contact.html
+Allow: /css/
+Allow: /js/
+Allow: /assets/
+
+# Crawl-delay for optimal indexing
+Crawl-delay: 1
+
+# XML Sitemap Location
+Sitemap: /sitemap.xml

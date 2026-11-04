@@ -1,0 +1,674 @@
+<?php
+/**
+ * C.S.I. Ewart Women's Christian College, Melrosapuram
+ * Faculty Directory & Academic Departments
+ */
+require_once __DIR__ . '/includes/db.php';
+$pageTitle = "Faculty & Staff Directory | C.S.I. Ewart Women's Christian College";
+require_once __DIR__ . '/includes/header.php';
+?>
+
+<style>
+  .dept-card {
+    background: #ffffff;
+    border: 1px solid var(--stone-200);
+    border-radius: 10px;
+    margin-bottom: 28px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+    overflow: hidden;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .dept-header {
+    background: linear-gradient(90deg, var(--navy) 0%, #002D62 100%);
+    color: #ffffff;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid var(--psu-gold);
+  }
+  .dept-title {
+    font-family: var(--font-serif);
+    font-size: 19px;
+    font-weight: 700;
+    margin: 0;
+    color: #ffffff;
+  }
+  .dept-count {
+    font-size: 12px;
+    background: rgba(201, 151, 0, 0.25);
+    border: 1px solid var(--psu-gold);
+    color: #ffd857;
+    padding: 3px 10px;
+    border-radius: 9999px;
+    font-weight: 600;
+  }
+  .faculty-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .faculty-table th {
+    background: #f1f5f9;
+    color: var(--navy);
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 700;
+    border-bottom: 2px solid var(--stone-300);
+  }
+  .faculty-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--stone-200);
+    vertical-align: middle;
+  }
+  .faculty-table tr:last-child td {
+    border-bottom: none;
+  }
+  .faculty-table tr:hover {
+    background-color: #f8fafc;
+  }
+  .badge-hod {
+    display: inline-block;
+    font-size: 11px;
+    background: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fde68a;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .badge-dean {
+    display: inline-block;
+    font-size: 11px;
+    background: #e0f2fe;
+    color: #0369a1;
+    border: 1px solid #bae6fd;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .filter-btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+  .dept-filter-btn {
+    padding: 8px 16px;
+    border: 1px solid var(--stone-300);
+    background: #ffffff;
+    color: var(--stone-700);
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .dept-filter-btn:hover, .dept-filter-btn.active {
+    background: var(--navy);
+    color: #ffffff;
+    border-color: var(--navy);
+  }
+</style>
+
+<div class="page-header">
+  <div class="container">
+    <h1>Faculty &amp; Staff Directory</h1>
+    <p>Committed Educators &bull; Christian Mentorship &bull; Academic Excellence</p>
+  </div>
+</div>
+
+<div class="container section">
+
+  <!-- Executive Principal Profile Card -->
+  <div class="mb-4 p-4 rounded shadow-sm border" style="background: linear-gradient(135deg, #001E44 0%, #002D62 100%); color: #ffffff;">
+    <div class="grid-2 align-center" style="gap: 28px;">
+      <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
+        <img src="/assets/aistudio/Principal_922aeb90.JPG" alt="Dr. S. Florence Vijila - Principal" style="width: 110px; height: 110px; object-fit: cover; border-radius: 50%; border: 3px solid var(--psu-gold); box-shadow: 0 4px 14px rgba(0,0,0,0.3);">
+        <div>
+          <span style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #ffd857; font-weight: 700;">Executive Academic Head</span>
+          <h2 class="serif-title" style="font-size: 24px; color: #ffffff; margin: 4px 0;">Dr. S. Florence Vijila</h2>
+          <p style="font-size: 14.5px; color: #e2e8f0; margin: 0 0 4px 0;"><strong>Qualifications:</strong> M.C.A., M.Phil., Ph.D.</p>
+          <p style="font-size: 14px; color: #ffd857; margin: 0; font-weight: 600;">Principal &bull; Head of Computer Science Department</p>
+        </div>
+      </div>
+      <div>
+        <p style="font-size: 14px; line-height: 1.6; color: #cbd5e1; margin: 0;">
+          Leading C.S.I. Ewart Women's Christian College with vision, academic rigor, and pastoral dedication to empowering young women scholars from rural communities through holistic higher education.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search & Filter Bar -->
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; margin-bottom: 20px; gap: 14px;">
+    <div>
+      <h3 class="serif-title text-navy" style="font-size: 22px; margin: 0;">Academic Departments</h3>
+      <p class="text-muted" style="margin: 0; font-size: 13.5px;">Explore faculty members by department or search by name</p>
+    </div>
+    <div style="flex: 1; max-width: 320px; min-width: 240px;">
+      <input type="text" id="facultySearchInput" placeholder="🔍 Search faculty, subject, degree..." onkeyup="filterFacultyList()" style="width: 100%; padding: 10px 14px; border: 1px solid var(--stone-300); border-radius: 6px; font-size: 13.5px; outline: none;">
+    </div>
+  </div>
+
+  <!-- Department Filter Buttons -->
+  <div class="filter-btn-group">
+    <button class="dept-filter-btn active" onclick="filterDepartment('all', this)">All Departments</button>
+    <button class="dept-filter-btn" onclick="filterDepartment('tamil', this)">Tamil</button>
+    <button class="dept-filter-btn" onclick="filterDepartment('english', this)">English</button>
+    <button class="dept-filter-btn" onclick="filterDepartment('cs', this)">Computer Science</button>
+    <button class="dept-filter-btn" onclick="filterDepartment('homescience', this)">Home Science</button>
+    <button class="dept-filter-btn" onclick="filterDepartment('maths', this)">Mathematics</button>
+    <button class="dept-filter-btn" onclick="filterDepartment('microbiology', this)">Microbiology</button>
+    <button class="dept-filter-btn" onclick="filterDepartment('commerce', this)">Commerce</button>
+    <button class="dept-filter-btn" onclick="filterDepartment('commerce-ism', this)">Commerce (ISM)</button>
+    <button class="dept-filter-btn" onclick="filterDepartment('socialwork', this)">Social Work</button>
+    <button class="dept-filter-btn" onclick="filterDepartment('support', this)">Other Staff</button>
+  </div>
+
+  <!-- 1. Department of Tamil -->
+  <div class="dept-card" data-dept="tamil">
+    <div class="dept-header">
+      <h3 class="dept-title">Department of Tamil</h3>
+      <span class="dept-count">2 Members</span>
+    </div>
+    <div class="table-responsive">
+      <table class="faculty-table">
+        <thead>
+          <tr>
+            <th style="width: 35%;">Name</th>
+            <th style="width: 25%;">Qualification</th>
+            <th style="width: 25%;">Designation</th>
+            <th style="width: 15%;">Department</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <strong>Mrs. F. Premila Josephin</strong>
+              <span class="badge-hod">HOD</span>
+              <span class="badge-dean">Dean &ndash; Student Affairs</span>
+            </td>
+            <td>M.A., M.Phil., B.Ed.</td>
+            <td>HOD &amp; Assistant Professor, Dean &ndash; Student Affairs</td>
+            <td>Tamil</td>
+          </tr>
+          <tr>
+            <td><strong>Ms. R. Sangavi</strong></td>
+            <td>M.A.</td>
+            <td>Assistant Professor</td>
+            <td>Tamil</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 2. Department of English -->
+  <div class="dept-card" data-dept="english">
+    <div class="dept-header">
+      <h3 class="dept-title">Department of English</h3>
+      <span class="dept-count">4 Members</span>
+    </div>
+    <div class="table-responsive">
+      <table class="faculty-table">
+        <thead>
+          <tr>
+            <th style="width: 35%;">Name</th>
+            <th style="width: 25%;">Qualification</th>
+            <th style="width: 25%;">Designation</th>
+            <th style="width: 15%;">Department</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <strong>Mrs. G. Shakila</strong>
+              <span class="badge-hod">HOD i/c</span>
+            </td>
+            <td>M.A., M.A., M.Phil.</td>
+            <td>HOD i/c &amp; Assistant Professor</td>
+            <td>English</td>
+          </tr>
+          <tr>
+            <td><strong>Ms. I. Joy</strong></td>
+            <td>M.A.</td>
+            <td>Assistant Professor</td>
+            <td>English</td>
+          </tr>
+          <tr>
+            <td><strong>Dr. J. Ethel Juliet</strong></td>
+            <td>M.A., M.Ed., Ph.D.</td>
+            <td>Assistant Professor</td>
+            <td>English</td>
+          </tr>
+          <tr>
+            <td><strong>Mrs. M. Vijayavalli</strong></td>
+            <td>M.A., M.Phil., B.Ed.</td>
+            <td>Assistant Professor</td>
+            <td>English</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 3. Department of Computer Science -->
+  <div class="dept-card" data-dept="cs">
+    <div class="dept-header">
+      <h3 class="dept-title">Department of Computer Science</h3>
+      <span class="dept-count">4 Members</span>
+    </div>
+    <div class="table-responsive">
+      <table class="faculty-table">
+        <thead>
+          <tr>
+            <th style="width: 35%;">Name</th>
+            <th style="width: 25%;">Qualification</th>
+            <th style="width: 25%;">Designation</th>
+            <th style="width: 15%;">Department</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <strong>Dr. S. Florence Vijila</strong>
+              <span class="badge-hod">HOD</span>
+              <span class="badge-dean">Principal</span>
+            </td>
+            <td>M.C.A., M.Phil., Ph.D.</td>
+            <td>HOD &amp; Assistant Professor (Principal)</td>
+            <td>Computer Science</td>
+          </tr>
+          <tr>
+            <td><strong>Mrs. J. Jennifer</strong></td>
+            <td>M.C.A., M.Phil., B.Ed.</td>
+            <td>Assistant Professor</td>
+            <td>Computer Science</td>
+          </tr>
+          <tr>
+            <td><strong>Mrs. S. Benitta Magdaline</strong></td>
+            <td>M.C.A., M.Phil.</td>
+            <td>Assistant Professor</td>
+            <td>Computer Science</td>
+          </tr>
+          <tr>
+            <td><strong>Mrs. N. Hanni Rose</strong></td>
+            <td>M.Sc., B.Ed.</td>
+            <td>Assistant Professor</td>
+            <td>Computer Science</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 4. Department of Home Science – Clinical Nutrition & Dietetics -->
+  <div class="dept-card" data-dept="homescience">
+    <div class="dept-header">
+      <h3 class="dept-title">Department of Home Science &ndash; Clinical Nutrition &amp; Dietetics</h3>
+      <span class="dept-count">3 Members</span>
+    </div>
+    <div class="table-responsive">
+      <table class="faculty-table">
+        <thead>
+          <tr>
+            <th style="width: 35%;">Name</th>
+            <th style="width: 25%;">Qualification</th>
+            <th style="width: 25%;">Designation</th>
+            <th style="width: 15%;">Department</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <strong>Mrs. Georgina Paul</strong>
+              <span class="badge-hod">HOD</span>
+            </td>
+            <td>M.Sc., M.Phil., NET</td>
+            <td>HOD &amp; Assistant Professor</td>
+            <td>Home Science</td>
+          </tr>
+          <tr>
+            <td><strong>Mrs. B. Kalos Kalyani</strong></td>
+            <td>M.Sc., M.Phil., NET</td>
+            <td>Assistant Professor</td>
+            <td>Home Science</td>
+          </tr>
+          <tr>
+            <td><strong>Ms. Mythilieshwari</strong></td>
+            <td>M.Sc.</td>
+            <td>Assistant Professor</td>
+            <td>Home Science</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 5. Department of Mathematics -->
+  <div class="dept-card" data-dept="maths">
+    <div class="dept-header">
+      <h3 class="dept-title">Department of Mathematics</h3>
+      <span class="dept-count">4 Members</span>
+    </div>
+    <div class="table-responsive">
+      <table class="faculty-table">
+        <thead>
+          <tr>
+            <th style="width: 35%;">Name</th>
+            <th style="width: 25%;">Qualification</th>
+            <th style="width: 25%;">Designation</th>
+            <th style="width: 15%;">Department</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <strong>Dr. S. Sheeba Juliet</strong>
+              <span class="badge-hod">HOD</span>
+            </td>
+            <td>M.Sc., M.Phil., M.Ed., Ph.D.</td>
+            <td>HOD &amp; Assistant Professor</td>
+            <td>Mathematics</td>
+          </tr>
+          <tr>
+            <td><strong>Dr. N. Niranjana</strong></td>
+            <td>M.Sc., M.Phil., B.Ed., Ph.D.</td>
+            <td>Assistant Professor</td>
+            <td>Mathematics</td>
+          </tr>
+          <tr>
+            <td><strong>Mrs. P. Sathya Priya</strong></td>
+            <td>M.Sc., M.Phil., B.Ed.</td>
+            <td>Assistant Professor</td>
+            <td>Mathematics</td>
+          </tr>
+          <tr>
+            <td><strong>Mrs. S. Abeena Shantini</strong></td>
+            <td>M.Sc., M.Phil.</td>
+            <td>Assistant Professor</td>
+            <td>Mathematics</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 6. Department of Microbiology -->
+  <div class="dept-card" data-dept="microbiology">
+    <div class="dept-header">
+      <h3 class="dept-title">Department of Microbiology</h3>
+      <span class="dept-count">4 Members</span>
+    </div>
+    <div class="table-responsive">
+      <table class="faculty-table">
+        <thead>
+          <tr>
+            <th style="width: 35%;">Name</th>
+            <th style="width: 25%;">Qualification</th>
+            <th style="width: 25%;">Designation</th>
+            <th style="width: 15%;">Department</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <strong>Mrs. D. Susan Caroline</strong>
+              <span class="badge-hod">HOD</span>
+            </td>
+            <td>M.Sc., M.Phil., B.Ed.</td>
+            <td>HOD &amp; Assistant Professor</td>
+            <td>Microbiology</td>
+          </tr>
+          <tr>
+            <td><strong>Mrs. R. Kalaivani</strong></td>
+            <td>M.Sc., M.Phil. (Biochemistry)</td>
+            <td>Assistant Professor</td>
+            <td>Microbiology</td>
+          </tr>
+          <tr>
+            <td><strong>Mrs. M. Uma Maheswari</strong></td>
+            <td>M.Sc., B.Ed.</td>
+            <td>Assistant Professor</td>
+            <td>Microbiology</td>
+          </tr>
+          <tr>
+            <td><strong>Mrs. J. Jerrina Marial</strong></td>
+            <td>M.Sc., M.Phil., M.Ed.</td>
+            <td>Assistant Professor</td>
+            <td>Microbiology</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 7. Department of Commerce -->
+  <div class="dept-card" data-dept="commerce">
+    <div class="dept-header">
+      <h3 class="dept-title">Department of Commerce</h3>
+      <span class="dept-count">4 Members</span>
+    </div>
+    <div class="table-responsive">
+      <table class="faculty-table">
+        <thead>
+          <tr>
+            <th style="width: 35%;">Name</th>
+            <th style="width: 25%;">Qualification</th>
+            <th style="width: 25%;">Designation</th>
+            <th style="width: 15%;">Department</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <strong>Mrs. J. Linta Josephine</strong>
+              <span class="badge-hod">HOD</span>
+              <span class="badge-dean">Bursar</span>
+            </td>
+            <td>M.Com., M.Phil., B.Ed., SET</td>
+            <td>HOD, Assistant Professor &amp; Bursar</td>
+            <td>Commerce</td>
+          </tr>
+          <tr>
+            <td><strong>Mrs. G. Silviyal Santhabai</strong></td>
+            <td>M.Com., M.Phil.</td>
+            <td>Assistant Professor</td>
+            <td>Commerce</td>
+          </tr>
+          <tr>
+            <td><strong>Dr. R. Anetta Marginic</strong></td>
+            <td>M.Com., MLISC., M.Phil., Ph.D.</td>
+            <td>Assistant Professor</td>
+            <td>Commerce</td>
+          </tr>
+          <tr>
+            <td><strong>Ms. L. Saranya</strong></td>
+            <td>M.Com.</td>
+            <td>Assistant Professor</td>
+            <td>Commerce</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 8. Department of Commerce – ISM -->
+  <div class="dept-card" data-dept="commerce-ism">
+    <div class="dept-header">
+      <h3 class="dept-title">Department of Commerce &ndash; Information Systems Management (ISM)</h3>
+      <span class="dept-count">3 Members</span>
+    </div>
+    <div class="table-responsive">
+      <table class="faculty-table">
+        <thead>
+          <tr>
+            <th style="width: 35%;">Name</th>
+            <th style="width: 25%;">Qualification</th>
+            <th style="width: 25%;">Designation</th>
+            <th style="width: 15%;">Department</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <strong>Mrs. M. Portia</strong>
+              <span class="badge-hod">HOD</span>
+            </td>
+            <td>M.A., M.B.A., M.Sc. (Psy), SET</td>
+            <td>HOD &amp; Assistant Professor</td>
+            <td>Commerce ISM</td>
+          </tr>
+          <tr>
+            <td><strong>Ms. V. Nithya</strong></td>
+            <td>M.Com.</td>
+            <td>Assistant Professor</td>
+            <td>Commerce ISM</td>
+          </tr>
+          <tr>
+            <td><strong>Mrs. Princy G</strong></td>
+            <td>M.Sc.</td>
+            <td>Assistant Professor</td>
+            <td>Commerce ISM</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 9. Department of Social Work -->
+  <div class="dept-card" data-dept="socialwork">
+    <div class="dept-header">
+      <h3 class="dept-title">Department of Social Work (MSW)</h3>
+      <span class="dept-count">3 Members</span>
+    </div>
+    <div class="table-responsive">
+      <table class="faculty-table">
+        <thead>
+          <tr>
+            <th style="width: 35%;">Name</th>
+            <th style="width: 25%;">Qualification</th>
+            <th style="width: 25%;">Designation</th>
+            <th style="width: 15%;">Department</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Mrs. Premalatha P</strong></td>
+            <td>MSW., NET., SET</td>
+            <td>Assistant Professor</td>
+            <td>Social Work</td>
+          </tr>
+          <tr>
+            <td><strong>Dr. John Bosco A</strong></td>
+            <td>MSW., Ph.D.</td>
+            <td>Assistant Professor</td>
+            <td>Social Work</td>
+          </tr>
+          <tr>
+            <td><strong>Ms. Jesy Stephy Priyadharshiny</strong></td>
+            <td>MSW., NET</td>
+            <td>Assistant Professor</td>
+            <td>Social Work</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 10. Other Staff & Academic Support -->
+  <div class="dept-card" data-dept="support">
+    <div class="dept-header">
+      <h3 class="dept-title">Academic Support &amp; Student Services</h3>
+      <span class="dept-count">2 Members</span>
+    </div>
+    <div class="table-responsive">
+      <table class="faculty-table">
+        <thead>
+          <tr>
+            <th style="width: 35%;">Name</th>
+            <th style="width: 25%;">Qualification</th>
+            <th style="width: 25%;">Designation</th>
+            <th style="width: 15%;">Department</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>College Librarian</strong></td>
+            <td>M.L.I.S. / NET</td>
+            <td>Librarian</td>
+            <td>Central Library</td>
+          </tr>
+          <tr>
+            <td><strong>Mrs. Gladis Mohansingh</strong></td>
+            <td>MA(Geo), MA(Psy), M.Ed.</td>
+            <td>Student Counsellor</td>
+            <td>Student Counselling Cell</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Mentorship Banner -->
+  <div class="p-4 bg-light border rounded mt-4" style="border-left: 4px solid var(--navy);">
+    <h3 class="serif-title text-navy" style="font-size: 20px;">Tutor-Ward Mentorship System</h3>
+    <p class="text-sm mt-2" style="line-height: 1.7; color: var(--stone-700);">
+      Every student at C.S.I. Ewart Women's Christian College is entrusted to a designated faculty tutor who closely tracks academic progress, offers moral counselling, encourages co-curricular participation, and maintains regular communication with parents for individual student growth and welfare.
+    </p>
+  </div>
+
+</div>
+
+<script>
+  // Department Filter Handler
+  function filterDepartment(deptKey, btnElement) {
+    const cards = document.querySelectorAll('.dept-card');
+    const buttons = document.querySelectorAll('.dept-filter-btn');
+
+    buttons.forEach(b => b.classList.remove('active'));
+    if (btnElement) btnElement.classList.add('active');
+
+    cards.forEach(card => {
+      if (deptKey === 'all' || card.getAttribute('data-dept') === deptKey) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  // Live Search Filter Handler
+  function filterFacultyList() {
+    const query = document.getElementById('facultySearchInput').value.toLowerCase().trim();
+    const cards = document.querySelectorAll('.dept-card');
+
+    cards.forEach(card => {
+      const rows = card.querySelectorAll('tbody tr');
+      let hasMatch = false;
+
+      rows.forEach(row => {
+        const text = row.innerText.toLowerCase();
+        if (text.includes(query)) {
+          row.style.display = '';
+          hasMatch = true;
+        } else {
+          row.style.display = 'none';
+        }
+      });
+
+      if (hasMatch || query === '') {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+</script>
+
+<?php require_once __DIR__ . '/includes/footer.php'; ?>
